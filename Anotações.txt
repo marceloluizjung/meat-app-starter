@@ -1,0 +1,81 @@
+    //Arrow , pode ter rretorno pode não ter
+	let teste: (mais: string) => void;
+    teste = (mais) => { functionconsole.log("") };
+	 
+	 //Variáveis
+	 cuidado com variáveis, inicializar elas é importante, 
+	 let teste : teste[] = [], 
+	 o angular entende de que tipo ele deve criar um array.
+	 
+	//Template string
+	let teste: number = 14; 
+	console.log('Esse tipo de string consigo chamar functions: ${teste}');
+	
+	//Colocando atributos só no construtor faz com que ele seja um atributo da classe (não é static),
+	o construtor de um componente serve para definir os atributos necessários para ele existir, por um exemplo um serviço, uma classe que possui atributos fora do construtor são variáveis da classe só isso.
+	
+	// ? significa opcional
+	
+	//Property binding = [atributoNoHTML], usado caso o valor passado não seja uma string.
+	
+	// {{ elemento do .ts }} - usado para acessar elemento do typescript
+	// propriedade?.atributo, no html o ? verifica se propriedade existe antes de acessar
+	
+	// caso eu queira chamar algum método pelo html usar () exemplo (click) , $event para passar o evento
+	
+	// @Input, inputa valores ao chamar componente no html, @Output, emite eventos pelo html
+	
+	//#referência de um componente
+	
+	//Rotas app.routes.ts, export const ROUTES: Routes = [{}];
+	no app.module.ts no RouterModule.forRoutes(ROUTES),
+	routerLinkActive - diretiva usada para aplicar a classe CSS ao dar click.
+	routerLink - caminho relativo. sem o uso do '/', se não será em relação ao caminho principal.
+	routerLinkActive="active" - Pode ser usado em componentes parents não necessariamente o que contém [routerLink]="['/about']"
+	
+	//Serviços em angular são singeltons
+	Serviços em angular possuem 3 escopos:
+	1 = Módulo ..... providers, quando um serviço é declarado como provider no módulo principal, ele pode ser usado por qualquer classe ou componente.
+	
+	2 = Componenete e seus filhos ... providers, só para o componente e seus filhos
+	
+	3 = Somente o componente ..... viewProviders, só para o componentes
+	
+	Serviços podem solicitar injeções de outros serviços, para isso @Injectable, só para receber injeções do framework
+	
+	//Reactive programing 
+	Observable: 
+		Subscribe - listener
+		Map - Transformação
+		Filter - filtrar 
+		
+	A diferença entre observable e promisse é que depois que o evento ocorre a promisse é encerrada, já no observable não, ele fica o tempo todo escutando a não ser que seja encerrado. 
+	
+	//Oque são pipes? 
+	Servem para transformação de um conteúdo (string ou algo primitivo), não é a mesma coisa que map. 
+	{{objeto.string | uppercase}}
+	async = como se fosse um subscribe, pode ser um observable
+	
+	//Template Forms
+	
+	É uma forma declarar o comportamento dos forms.
+	Usa a diretiva ngModel nos inputs. 
+	Cada vez que tem a tag <form> o angular associa a diretiva ngForm
+	Com a diretiva ngModel nos inputs o form fica sabendo se aquele valor é válido ou não.
+	Usando property binding associado á uma propriedade de um componente, quando o valor do campo mudar a propriedade atualiza, caso contrário não acontece nada.
+	Caso o valor da propriedade seja atualizado ou o valor do input seja atualizado usar two way binding [(ngModel)], 
+	Pode ter acesso a diretiva ngForm através de template variables, #myForm="ngForm", #ipt=ngModel
+	- ngModel: Serve também para dar feedbacks para o usuário
+		Valid | Invalid: De acordo com o valor inserido pelo usuário
+		Pristine | Dirty: Pristine é o estado inicial do campo, uma vez que é inserido valores vai para dirty e não volta mais.
+		Untouched | Touched: Entra ou não no campo
+		
+		NgUntouched, NgTouched, NgPristine, NgDirty, NgValid, NgInvalid.
+		
+	-ngContent - Content projection, <meu-componente>Conteu do</meu-componente>
+	o ng-content e ele capta oque está entre a tag do componente.
+	@ContentChild
+	
+	- String regex usando expressões regulares e usando a diretiva pattern
+	
+	
