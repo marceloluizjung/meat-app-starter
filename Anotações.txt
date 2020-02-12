@@ -78,4 +78,4 @@
 	
 	- String regex usando expressões regulares e usando a diretiva pattern
 	
-	
+	-stop propagation event
