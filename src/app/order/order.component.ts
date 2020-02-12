@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
+  public paymentOptions: any[] = [{label:"Dinheiro", value:"MON"},{label:"Débito", value:"DEB"}];
+
   constructor() { }
 
   ngOnInit() {
