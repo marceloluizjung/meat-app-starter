@@ -79,3 +79,7 @@
 	- String regex usando expressões regulares e usando a diretiva pattern
 	
 	-stop propagation event
+
+	- ControlValueAccessor - controle de valores dos formulários, é como se fosse parte do form, input por exemplo
+	 writeValue - usado pelas diretivas quando é passado algum valor
+	 registerOnChange - controle de mudança de valor interno do componente
