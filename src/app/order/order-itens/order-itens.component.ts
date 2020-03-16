@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model';
 
 @Component({
@@ -6,9 +6,9 @@ import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model';
   templateUrl: './order-itens.component.html',
   styleUrls: ['./order-itens.component.css']
 })
-export class OrderItensComponent implements OnInit {
+export class OrderItensComponent implements OnInit, AfterViewInit {
 
-  @Input() itens: CartItem[]
+  @Input() itens: CartItem[] = [];
   @Output() increaseQty = new EventEmitter<CartItem>();
   @Output() decreaseQty = new EventEmitter<CartItem>();
   @Output() remove = new EventEmitter<CartItem>();
@@ -16,17 +16,24 @@ export class OrderItensComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    debugger;
+    console.log(this.itens);
   }
 
-  emitIncreiaseQty (item: CartItem) {
+  ngAfterViewInit() {
+  }
+
+
+
+  emitIncreaseQty(item: CartItem) {
     this.increaseQty.emit(item);
   }
 
-  emitDecreiaseQty (item: CartItem) {
+  emitDecreaseQty(item: CartItem) {
     this.decreaseQty.emit(item);
   }
 
-  emitRemove (item: CartItem) {
+  emitRemove(item: CartItem) {
     this.remove.emit(item);
   }
 

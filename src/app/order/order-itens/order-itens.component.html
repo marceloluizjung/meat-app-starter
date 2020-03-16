@@ -1,7 +1,7 @@
-<div class="col-xs-12" *ngIf="!itens">
+<div class="col-xs-12" *ngIf="itens.length == 0">
 <p>Não tem nada no carrinho</p>
 </div>
-<div class="col-xs-12 table-responsive" *ngIf="itens">
+<div class="col-xs-12 table-responsive" *ngIf="itens.length > 0">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items">
+      <tr *ngFor="let item of itens">
         <td class="text-center">
           <a (click)="emitDecreaseQty(item)" class="btn btn-sm"><i class="fa fa-minus"></i></a>
           {{item.quantity}}
@@ -21,12 +21,11 @@
         </td>
         <td>{{item.menuItem.name}}</td>
         <td>{{item.menuItem.description}}</td>
-        <td class="text-right">{{item.value | corrency: 'BRL': true}}</td>
+        <td class="text-right">{{item.menuItem.price * item.quantity}}</td>
         <td class="text-right">
           <a (click)="emitRemove(item)"  class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
         </td>
       </tr>
-      <tr>
     </tbody>
   </table>
 </div>

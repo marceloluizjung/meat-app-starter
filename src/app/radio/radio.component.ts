@@ -16,8 +16,8 @@ export class RadioComponent implements OnInit, ControlValueAccessor {
 
   @Input() options: RadioOption[];
 
-  value: any;
-  onChange: any;
+  public value: any;
+  public onChange: any;
   constructor() { }
 
   ngOnInit() {
@@ -28,19 +28,19 @@ export class RadioComponent implements OnInit, ControlValueAccessor {
     this.onChange(this.value);
   }
 
-  writeValue(obj: any): void {
+  public writeValue(obj: any): void {
     this.value = obj;
   }
 
-  registerOnChange(fn: any): void {
+  public registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: any): void {
 
   }
 
-  setDisabledState?(isDisabled: boolean): void {
+  public setDisabledState?(isDisabled: boolean): void {
 
   }
 

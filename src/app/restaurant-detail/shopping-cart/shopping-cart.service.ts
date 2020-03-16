@@ -3,7 +3,9 @@ import { MenuItem } from "../menu-item/menu-item.model";
 
 export class ShoppingCartService {
 
-    items: CartItem[] = [];
+    constructor() { }
+
+    public items: CartItem[] = [];
 
     public clear() {
         this.items = [];
@@ -15,7 +17,7 @@ export class ShoppingCartService {
         });
 
         if (foundItem) {
-            foundItem.quantity = foundItem.quantity + 1;
+            this.increaseQty(foundItem);
         } else {
             this.items.push(new CartItem(item));
         }
@@ -27,5 +29,16 @@ export class ShoppingCartService {
 
     public total(): number {
         return this.items.map(item => item.value()).reduce((prev, value) => prev + value + 0);
+    }
+
+    public increaseQty(item: CartItem) {
+        item.quantity++;
+    }
+
+    public decreaseQty(item: CartItem) {
+        item.quantity--;
+        if (item.quantity == 0) {
+            this.removeItem(item);
+        }
     }
 }

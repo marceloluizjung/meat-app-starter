@@ -1,0 +1,11 @@
+<form [formGroup]="formGroup">
+  <input placeholder="Nome:" class="form-control" formControlName="name">
+
+  <input placeholder="E-mail:" class="form-control" formControlName="email">
+
+  <input placeholder="Número:" class="form-control" formControlName="number">
+
+  <button [class.color-button-invalid]="!formGroup?.valid" [class.color-button-valid]="formGroup?.valid" type="submit" (click)="subscribe()">Subscribe</button>
+  <button [ngClass]="{'color-button-valid': formGroup?.valid, 'color-button-invalid': !formGroup?.valid}" type="submit" (click)="subscribe()">Subscribe</button>
+
+</form>
