@@ -9,6 +9,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
 
   public formGroup: FormGroup;
+  public formGroupDynamic: FormGroup;
+
 
   constructor(public formBuilder: FormBuilder) { }
 
@@ -18,11 +20,16 @@ export class FormComponent implements OnInit {
       email: this.formBuilder.control(''),
       number: this.formBuilder.control(''),
     });
+
+    // this.formGroupDynamic = this.formBuilder.group({
+    //   namedynamic: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
+    //   emaildynamic: this.formBuilder.control(''),
+    //   numberdynamic: this.formBuilder.control(''),
+    // });
   }
 
   public subscribe() {
-    console.log(this.formGroup);
-    debugger;
+    this.formGroup.controls['name'].setValue('Este valor foi setado de forma dinâmica');
   }
 
 }
