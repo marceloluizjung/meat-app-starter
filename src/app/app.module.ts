@@ -24,7 +24,7 @@ import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './radio/radio.component';
 import { OrderItensComponent } from './order/order-itens/order-itens.component';
 import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
-import { FormComponent } from './form/form.component';
+import { FormGuard } from './form/form.guard';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,6 @@ import { FormComponent } from './form/form.component';
     RadioComponent,
     OrderItensComponent,
     DeliveryCostsComponent,
-    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +52,7 @@ import { FormComponent } from './form/form.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [RestaurantsService, ShoppingCartService, {provide: LOCALE_ID, useValue: 'pt-BR'}, OrderService, ReactiveFormsModule], 
+  providers: [RestaurantsService, ShoppingCartService, { provide: LOCALE_ID, useValue: 'pt-BR' }, OrderService, ReactiveFormsModule, FormGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
